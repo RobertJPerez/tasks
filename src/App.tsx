@@ -1,7 +1,8 @@
 import { mainModule } from "process";
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
+import DoodleBob from "/Users/robertperez/tasks/src/Images/DoodleBob.jpeg";
 
 function App(): JSX.Element {
     return (
@@ -13,26 +14,25 @@ function App(): JSX.Element {
                 Hello World
                 <br />
                 by Robert Perez
-                <img
-                    src="/Users/robertperez/tasks/src/Images/DoodleBob.jpeg"
-                    alt="Doodle Bob"
-                ></img>
+                <img src={DoodleBob} alt="Doodle Bob"></img>
                 Best Spongebob Characters
                 <ol>
                     <li>Doodle Bob</li>
                     <li>Bubble Bass</li>
                     <li>Smitty WerbenJagerManJensen</li>
                 </ol>
-                <section className="main-col">
-                    <h3>All about Smitty</h3>
-                    <p>He was number 1</p>
-                    <aside className="sidebar-col">
-                        <img
-                            src="/Users/robertperez/tasks/src/Images/Smitty WerbenJaegermanjensen.jpeg"
-                            alt="Doodle Bob"
-                        ></img>
-                    </aside>
-                </section>
+                <div>
+                    <Container>
+                        <Row>
+                            <Col className="main-col">First column.</Col>
+                            <Col className="main-col">
+                                Second column. You can put whatever you want in
+                                here, and it will be on the right side. Maybe
+                                try adding an image?
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
             </header>
 
             <Button onClick={() => console.log("Hello World!")}>
