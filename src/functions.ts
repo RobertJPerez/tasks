@@ -4,7 +4,11 @@
  *      C = (F - 32) * 5/9
  */
 export function fahrenheitToCelius(temperature: number): number {
-    return 0;
+    temperature = temperature - 32;
+    temperature = temperature * 0.556;
+    temperature = Math.round(temperature);
+    return temperature;
+    console.log(temperature);
 }
 
 /**
@@ -12,6 +16,35 @@ export function fahrenheitToCelius(temperature: number): number {
  * if the number is greater than zero.
  */
 export function add3(first: number, second: number, third: number): number {
+    let sum: number;
+    sum = 0;
+    if (first > 0) {
+        sum = first + sum;
+        if (second > 0) {
+            sum = second + sum;
+            if (third > 0) {
+                sum = third + sum;
+                return sum;
+                console.log(sum);
+            }
+        }
+        if (second < 0) {
+            sum = first + third;
+        }
+    }
+
+    if (second > 0) {
+        sum = second + sum;
+        if (third > 0) {
+            sum = third + sum;
+        }
+    }
+    if (third > 0) {
+        sum = third + sum;
+    } else {
+        return 0;
+        console.log("Cannot add 0 values!!!");
+    }
     return 0;
 }
 
@@ -20,7 +53,9 @@ export function add3(first: number, second: number, third: number): number {
  * mark added to the end.
  */
 export function shout(message: string): string {
-    return "";
+    //let newmessage = message.toUpperCase;
+    //newmessage = newmessage + "!";
+    return message;
 }
 
 /**
@@ -28,7 +63,10 @@ export function shout(message: string): string {
  * mark. Do not use an `if` statement in solving this question.
  */
 export function isQuestion(message: string): boolean {
-    return true;
+    let var1: boolean;
+    // eslint-disable-next-line prefer-const
+    var1 = message.endsWith("?");
+    return var1;
 }
 
 /**
@@ -37,5 +75,13 @@ export function isQuestion(message: string): boolean {
  * upper or lower case), then return `false`. Otherwise, return `null`.
  */
 export function convertYesNo(word: string): boolean | null {
+    if (word === "yes" || word === "YES") {
+        return true;
+    }
+    if (word === "no" || word === "NO") {
+        return false;
+    } else {
+        return null;
+    }
     return true;
 }
