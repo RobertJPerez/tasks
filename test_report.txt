@@ -6,17 +6,53 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 PASS src/HtmlCss.test.tsx
+FAIL src/functions.test.ts
+  ● Testing the basic functions › Testing the add3 function
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 15
+    Received: 0
+
+      21 |         expect(add3(1, 2, 3)).toBe(6);
+      22 |         expect(add3(9, 7, 4)).toBe(20);
+    > 23 |         expect(add3(6, -3, 9)).toBe(15);
+         |                                ^
+      24 |         expect(add3(10, 1, -9)).toBe(11);
+      25 |         expect(add3(-9, -100, -4)).toBe(0);
+      26 |         expect(add3(-1, -1, 1)).toBe(1);
+
+      at Object.<anonymous> (src/functions.test.ts:23:32)
+
+  ● Testing the basic functions › Testing the shout function
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "HELLO!"
+    Received: "Hello"
+
+      28 |
+      29 |     test("Testing the shout function", () => {
+    > 30 |         expect(shout("Hello")).toBe("HELLO!");
+         |                                ^
+      31 |         expect(shout("What?")).toBe("WHAT?!");
+      32 |         expect(shout("oHo")).toBe("OHO!");
+      33 |         expect(shout("AHHHH!!!")).toBe("AHHHH!!!!");
+
+      at Object.<anonymous> (src/functions.test.ts:30:32)
+
 PASS src/text.test.tsx
 PASS src/App.test.tsx
-----------|---------|----------|---------|---------|-------------------
-File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------|---------|----------|---------|---------|-------------------
-All files |     100 |      100 |     100 |     100 |                   
- App.tsx  |     100 |      100 |     100 |     100 |                   
-----------|---------|----------|---------|---------|-------------------
+--------------|---------|----------|---------|---------|----------------------
+File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
+--------------|---------|----------|---------|---------|----------------------
+All files     |   77.77 |    68.18 |     100 |   77.77 |                      
+ App.tsx      |     100 |      100 |     100 |     100 |                      
+ functions.ts |   76.47 |    68.18 |     100 |   76.47 | 11,28,37-39,45-46,86 
+--------------|---------|----------|---------|---------|----------------------
 
-Test Suites: 3 passed, 3 total
-Tests:       9 passed, 9 total
+Test Suites: 1 failed, 3 passed, 4 total
+Tests:       2 failed, 12 passed, 14 total
 Snapshots:   0 total
-Time:        3.528 s
+Time:        3.176 s
 Ran all test suites.
