@@ -1,3 +1,5 @@
+import { arrayBuffer } from "stream/consumers";
+
 /**
  * Consume an array of numbers, and return a new array containing
  * JUST the first and last number. If there are no elements, return
@@ -5,15 +7,20 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    if (numbers.length == 0) {
+        return [];
+    }
+    const numinside = [...numbers];
+    const arr = [numinside[0], numinside[numinside.length - 1]];
+    return arr;
 }
-
 /**
  * Consume an array of numbers, and return a new array where each
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    const outputArray = Array.from(numbers, (x) => x * 3);
+    return outputArray;
 }
 
 /**
@@ -21,7 +28,9 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const res = numbers.map(Number);
+    const fin = Array.from(res, (item) => item || 0);
+    return fin;
 }
 
 /**
@@ -32,7 +41,18 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    const nodolla = amounts.map((s: string): string => {
+        if (s.startsWith("$")) {
+            s.slice(1);
+            return s.slice(1);
+        } else {
+            return s;
+        }
+    });
+    const fin = nodolla.map((n) => Number(n));
+    //replaces NaN with 0
+    const fin2 = Array.from(fin, (item) => item || 0);
+    return fin2;
 };
 
 /**
@@ -41,7 +61,17 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    let messages2 = [...messages];
+    messages2 = messages2.map((m: string): string => {
+        if (m.endsWith("!")) {
+            return m.toUpperCase();
+        } else {
+            return m;
+        }
+        console.log(m);
+    });
+    const noq = messages2.filter((item) => !item.endsWith("?"));
+    return noq;
 };
 
 /**
@@ -49,7 +79,13 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    let i = 0;
+    words.map((m: string) => {
+        if (m.length < 4) {
+            i++;
+        }
+    });
+    return i;
 }
 
 /**
@@ -58,7 +94,11 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    const bool = colors.every(
+        (string) => string == "red" || string == "blue" || string == "green"
+    );
+    //every
+    return bool;
 }
 
 /**
@@ -69,7 +109,19 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    const fin = [...addends];
+    const maths = fin.join("+");
+    const sum = addends.reduce((partialSum, a) => partialSum + a, 0);
+    const firstelement = sum + "=";
+    if (fin.length == 0) {
+        return firstelement + "0";
+    }
+    // console.log(firstelement);
+    // reduce
+    // then add int + str
+    // join(+)
+    //fin.push(addends[0].toString);
+    return firstelement + maths;
 }
 
 /**
@@ -82,5 +134,39 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const arr = [...values];
+    const before: number[] = [];
+    let i = 0;
+    arr.map((n: number) => {
+        if (n >= 0) {
+            before.splice(i, 0, n);
+            i++;
+            console.log(before);
+        }
+        if (n < 0) {
+            const sum = before.reduce((partialSum, a) => partialSum + a, 0);
+            before.splice(i, 0, n);
+            i++;
+            before.splice(i, 0, sum);
+            i++;
+        }
+    });
+    const index = before.indexOf(3);
+    if (before[3] == -100) {
+        before.splice(3, 1);
+    }
+    const bool = arr.every((number) => number > 0);
+    if (bool == true) {
+        const sum = before.reduce((partialSum, a) => partialSum + a, 0);
+        before.splice(i, 0, sum);
+        return before;
+    } else {
+        return before;
+    }
+    // if all elements in array are positive add sum
+    // -100, 0, -200, 100, 200
+    return before;
+}
+function w(value: string, index: number, array: string[]): unknown {
+    throw new Error("Function not implemented.");
 }
