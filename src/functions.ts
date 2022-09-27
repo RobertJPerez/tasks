@@ -20,32 +20,14 @@ export function add3(first: number, second: number, third: number): number {
     sum = 0;
     if (first > 0) {
         sum = first + sum;
-        if (second > 0) {
-            sum = second + sum;
-            if (third > 0) {
-                sum = third + sum;
-                return sum;
-                console.log(sum);
-            }
-        }
-        if (second < 0) {
-            sum = first + third;
-        }
     }
-
     if (second > 0) {
         sum = second + sum;
-        if (third > 0) {
-            sum = third + sum;
-        }
     }
     if (third > 0) {
         sum = third + sum;
-    } else {
-        return 0;
-        console.log("Cannot add 0 values!!!");
     }
-    return 0;
+    return sum;
 }
 
 /**
@@ -53,9 +35,8 @@ export function add3(first: number, second: number, third: number): number {
  * mark added to the end.
  */
 export function shout(message: string): string {
-    //let newmessage = message.toUpperCase;
-    //newmessage = newmessage + "!";
-    return message;
+    const newmessage = message.toUpperCase() + "!";
+    return newmessage;
 }
 
 /**
@@ -63,10 +44,7 @@ export function shout(message: string): string {
  * mark. Do not use an `if` statement in solving this question.
  */
 export function isQuestion(message: string): boolean {
-    let var1: boolean;
-    // eslint-disable-next-line prefer-const
-    var1 = message.endsWith("?");
-    return var1;
+    return message.endsWith("?");
 }
 
 /**
