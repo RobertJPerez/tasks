@@ -141,7 +141,6 @@ export function injectPositive(values: number[]): number[] {
         if (n >= 0) {
             before.splice(i, 0, n);
             i++;
-            console.log(before);
         }
         if (n < 0) {
             const sum = before.reduce((partialSum, a) => partialSum + a, 0);
