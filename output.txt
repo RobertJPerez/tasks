@@ -1,0 +1,7 @@
+
+> react-typescript-starter@0.1.0 test
+> react-scripts test "Counter.test.tsx"
+
+
+
+[1B[J
