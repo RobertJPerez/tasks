@@ -1,4 +1,4 @@
-import { arrayBuffer } from "stream/consumers";
+// import { arrayBuffer } from "stream/consumers";
 
 /**
  * Consume an array of numbers, and return a new array containing
@@ -141,7 +141,6 @@ export function injectPositive(values: number[]): number[] {
         if (n >= 0) {
             before.splice(i, 0, n);
             i++;
-            console.log(before);
         }
         if (n < 0) {
             const sum = before.reduce((partialSum, a) => partialSum + a, 0);
@@ -151,7 +150,7 @@ export function injectPositive(values: number[]): number[] {
             i++;
         }
     });
-    const index = before.indexOf(3);
+    // const index = before.indexOf(3);
     if (before[3] == -100) {
         before.splice(3, 1);
     }
@@ -167,6 +166,8 @@ export function injectPositive(values: number[]): number[] {
     // -100, 0, -200, 100, 200
     return before;
 }
-function w(value: string, index: number, array: string[]): unknown {
-    throw new Error("Function not implemented.");
-}
+//findindex - finds first negative
+// when find index add index + 1 to insert new sum
+// function w(value: string, index: number, array: string[]): unknown {
+//     throw new Error("Function not implemented.");
+// }

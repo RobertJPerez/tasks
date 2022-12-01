@@ -11,6 +11,7 @@ export function fahrenheitToCelius(temperature: number): number {
     console.log(temperature);
 }
 
+//num, float, string, char, boolean, NULL,
 /**
  * Consumes three numbers and produces their sum. BUT you should only add a number
  * if the number is greater than zero.
