@@ -18,31 +18,31 @@ export function CycleHoliday(): JSX.Element {
         name: "New_Years",
         date: 1,
         alphaorder: 1,
-        emoji: "#0101"
+        emoji: "🧨"
     } as Holiday;
     const secondholiday = {
         name: "Valentine's_Day",
         date: 2,
         alphaorder: 1,
-        emoji: "#0102"
+        emoji: "❤️"
     } as Holiday;
     const thirdholiday = {
         name: "St_Patty's_Day",
         date: 3,
         alphaorder: 1,
-        emoji: "#0103"
+        emoji: "🍺"
     } as Holiday;
     const fourthholiday = {
         name: "Halloween",
         date: 4,
         alphaorder: 1,
-        emoji: "#0104"
+        emoji: "😊"
     } as Holiday;
     const fifthholiday = {
         name: "Christmas",
         date: 5,
         alphaorder: 1,
-        emoji: "#0105"
+        emoji: "🎄"
     } as Holiday;
     const ListofHolidaysByDates = [
         firstholiday,
