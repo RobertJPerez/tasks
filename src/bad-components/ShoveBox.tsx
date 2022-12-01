@@ -14,8 +14,7 @@ function ShoveBoxButton({
 }
 
 function MoveableBox({
-    position,
-    setPosition
+    position
 }: {
     position: number;
     setPosition: (newPosition: number) => void;
